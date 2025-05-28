@@ -2,9 +2,12 @@ import streamlit as st
 import numpy as np
 import joblib
 from PIL import Image
+import os
 
-model = joblib.load("iris_model.pkl")
-scaler = joblib.load("scaler.pkl")
+base_dir = os.path.dirname(__file__)
+model = joblib.load(os.path.join(base_dir, "iris_model.pkl"))
+scaler = joblib.load(os.path.join(base_dir, "scaler.pkl"))
+
 
 species_names = ["Setosa", "Versicolor", "Virginica"]
 image_paths = {
