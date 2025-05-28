@@ -41,6 +41,7 @@ with left:
 
         with right:
             st.markdown("<h3 style='text-align: center;'>Predicted Iris Species</h3>",unsafe_allow_html=True)
-            image = Image.open(image_paths[predicted_species])
+            image_path = os.path.join(os.path.dirname(__file__), image_paths[predicted_species])
+            image = Image.open(image_path)
             st.image(image,use_container_width=True)
             st.markdown(f"<h3 style='color: green; text-align: center;'>{predicted_species}</h3>", unsafe_allow_html=True)
